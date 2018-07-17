@@ -1,6 +1,4 @@
-html {
-    box-sizing: border-box;
-}
+@import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
 
 *,
 *::after,
@@ -8,6 +6,19 @@ html {
     box-sizing: border-box;
 }
 
+html {
+    box-sizing: border-box;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+  
+/* zocial */
+[class*="zocial-"]:before {
+    font-family: 'zocial', sans-serif;
+}
 
 body, section, header, main, nav,
 h1, h2, h3, h4, h5, h6
