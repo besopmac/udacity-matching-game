@@ -1,3 +1,8 @@
+/*
+ * CSS Reset, font-icons import and common styles
+ *
+ */
+
 @import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
 
 *,
@@ -28,5 +33,79 @@ p, ul, li {
 }
 
 body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    background-color: #ededed;
     font-family: 'Fira Sans', sans-serif; 
+}
+
+.wrapper {
+    width: 680px;
+    padding: 1.5em;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/*
+ * header + navigation controls
+ *
+ */
+
+.title {
+    text-align: center;
+    /*
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    */
+}
+
+.navigation {
+    display: flex;
+    padding: 1em 0;
+    font-size: 1.35em;
+    justify-content: space-between;
+}
+
+.lifes,
+.board {
+    display: flex;
+    list-style: none;
+}
+
+
+/*
+ * cards
+ *
+ */
+
+.board {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card {
+    width: 140px;
+    height: 140px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 2px;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1em;
+    color: #ededed;
+    background-color: #ededed;
+
+    transition: all .5s ease-in;
+}
+
+.on {
+    color: #fff;
+    font-size: 2em;
+    background-color: #157efb;
 }
