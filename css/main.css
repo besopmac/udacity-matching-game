@@ -38,49 +38,57 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;    
-    background-color: #ededed;
+    background-color: #fff;
     font-family: 'Fira Sans', sans-serif; 
+}
+.lifes {
+    display: flex;
+    list-style: none;
+}
+.lifes li:not(:last-child) {
+    margin-right: 5px;
 }
 
 .deck {
     width: 680px;
+    display: flex;
+    flex-wrap: wrap;
     min-height: 600px;
-    border-radius: 2px;
-    background-color: #fff;
+    align-items: stretch;
+    background-color: white;
+    justify-content: space-evenly;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 /* header + navigation controls */
 .navigation {
     display: flex;
+    padding: 15px 0;
     font-size: 1.35em;
+    align-items: center;
     justify-content: space-between;
 }
-
-.lifes,
-.board {
-    display: flex;
+.btn-reset {
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: transparent;
 }
 
 
-/*
- * cards
- *
- */
-
-.board {
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
+/* cards */
 .card {
     padding: 12px;
     display: flex;
     cursor: pointer;
-    border-radius: 2px;
     align-items: center;
     justify-content: center;
+    width: calc((100% - 0px)/4);
     background-color: #ededed;
+    transition: background-color .2s ease;
+}
+.card:hover {
+    background-color: #d4d4d4;
 }
 
 .on {
