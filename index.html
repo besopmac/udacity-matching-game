@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 
     <title>The Matching Game</title>
@@ -19,62 +18,68 @@
 
         <nav class="navigation">
             <ul class="lifes">
-                <li><span class="entypo-heart"></span></li>
-                <li><span class="entypo-heart"></span></li>
-                <li><span class="entypo-heart-empty"></span></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
             </ul>
 
-            <button class="btn-reset" onclick="start()"><span class="entypo-arrows-ccw"></span></button>
+            <div class="moves">0 move(s)</div>
+
+            <div class="timer">0 mins 0 secs</div>
+
+            <button class="btn-reset" onclick="start()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
         </nav>
 
         <ul class="deck">
             <li class="card" data-type="android">
-                <span class="zocial-android"></span>
+                <i class="fa fa-android" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="android">
-                <span class="zocial-android"></span>
+                <i class="fa fa-android" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="apple">
-                <span class="zocial-appstore"></span>
+                <i class="fa fa-apple" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="apple">
-                <span class="zocial-appstore"></span>
+                <i class="fa fa-apple" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="windows">
-                <span class="zocial-windows"></span>
+                <i class="fa fa-windows" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="windows">
-                <span class="zocial-windows"></span>
+                <i class="fa fa-windows" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="twitter">
-                <span class="zocial-twitter"></span>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="twitter">
-                <span class="zocial-twitter"></span>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="amazon">
-                <span class="zocial-amazon"></span>
+                <i class="fa fa-amazon" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="amazon">
-                <span class="zocial-amazon"></span>
+                <i class="fa fa-amazon" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="bitcoin">
-                <span class="zocial-bitcoin"></span>
+                <i class="fa fa-btc" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="bitcoin">
-                <span class="zocial-bitcoin"></span>
+                <i class="fa fa-btc" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="linkedin">
-                <span class="zocial-linkedin"></span>
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="linkedin">
-                <span class="zocial-linkedin"></span>
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="dribbble">
-                <span class="zocial-dribbble"></span>
+                <i class="fa fa-dribbble" aria-hidden="true"></i>
             </li>
             <li class="card" data-type="dribbble">
-                <span class="zocial-dribbble"></span>
+                <i class="fa fa-dribbble" aria-hidden="true"></i>
             </li>
         </ul>
     </button>

@@ -1,20 +1,22 @@
 // collecting all cards on board
 const board = document.querySelectorAll('.card');
-const cards = [...board];
+let cards = [...board];
 
 // getting all cards on the deck
 const deck = document.querySelector('.deck');
 
+// init moves variables
+const counter = document.querySelector('.moves');
+let moves = 0;
+
+// init moves stars
+const lifes = document.querySelectorAll('.fa-star');
+
+// getting the matched cards
+let matchedCards = document.querySelectorAll('.match');
+
 // openedCards init
 let openedCards = [];
-
-
-// displayCard is a function to change the card's states
-let displayCard = function() {
-    this.classList.toggle('open');
-    this.classList.toggle('show');
-    this.classList.toggle('disabled');
-}
 
 
 // randomize cards position
@@ -33,18 +35,40 @@ function shuffle(array) {
     return array;
 }
 
-// deck all cards on deck
-function start() {
-    let shuffledCards = shuffle(cards);
+// shuffle cards when page is refreshed
+document.body.onload = start();
 
-    for (let i = 0; i < shuffledCards.length; i++) {
-        [].forEach.call(shuffledCards, function(item) {
+
+// function to start and reset the board
+function start() {
+    // shuffle cards
+    cards = shuffle(cards);
+
+    // clear all classes from each card and append it on deck
+    for (let i = 0; i < cards.length; i++) {
+        deck.innerHTML = '';
+        [].forEach.call(cards, function(item) {
             deck.appendChild(item);
         });
+        cards[i].classList.remove('show', 'open', 'match', 'disabled');
     }
+
+    // reset moves
+    moves = 0;
+    counter.innerHTML = moves;
+
+    // reset rating
+    // reset timer
 }
 
-document.body.onload = start();
+
+// displayCard is a function to change the card's states
+let displayCard = function() {
+    this.classList.toggle('open');
+    this.classList.toggle('show');
+    this.classList.toggle('disabled');
+}
+
 
 // adding opened cards to a list and check if they are match or not
 function cardOpen() {
@@ -53,6 +77,7 @@ function cardOpen() {
     let len = openedCards.length;
 
     if (len === 2) {
+        addCounter();
         if (openedCards[0].dataset.type === openedCards[1].dataset.type) {
             matched();
         } else {
@@ -68,6 +93,18 @@ function matched() {
     openedCards[0].classList.remove('show', 'open', 'no-event');
     openedCards[1].classList.remove('show', 'open', 'no-event');
     openedCards = [];
+}
+
+
+// counting the player's moves
+function addCounter() {
+    moves++;
+    counter.innerHTML = moves;
+
+    console.log('counted!');
+
+    // starting the timer counter
+    // starting the rating logic
 }
 
 

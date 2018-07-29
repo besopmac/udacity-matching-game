@@ -2,9 +2,6 @@
  * CSS Reset, font-icons import and common styles
  *
  */
-
-@import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
-
 *,
 *::after,
 *::before {
@@ -13,16 +10,6 @@
 
 html {
     box-sizing: border-box;
-}
-
-/* entypo */
-[class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-}
-  
-/* zocial */
-[class*="zocial-"]:before {
-    font-family: 'zocial', sans-serif;
 }
 
 body, section, header, main, nav,
@@ -39,7 +26,7 @@ body {
     align-items: center;
     justify-content: center;    
     background-color: #fff;
-    font-family: 'Fira Sans', sans-serif; 
+    font-family: sans-serif;
 }
 .lifes {
     display: flex;
@@ -91,11 +78,10 @@ body {
     background-color: #d4d4d4;
 }
 
-
+/* states of cards */
 .disabled {
     color: #ccc;
     cursor: default;
-    border: 1px dashed #333;
 }
 
 .match {
