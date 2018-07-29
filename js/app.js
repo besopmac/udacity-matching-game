@@ -3,23 +3,27 @@ let board = document.querySelectorAll('.card');
 let cards = [...board];
 
 // getting all cards on the deck
-let deck = document.querySelector('.deck');
+const deck = document.querySelector('.deck');
 
 // init moves variables
-let counter = document.querySelector('.moves');
 let moves = 0;
+let counter = document.querySelector('.moves');
 
-// init moves stars
-let lifes = document.querySelectorAll('.fa-star');
+// getting the stars icons and rank list
+const stars = document.querySelectorAll('.fa-star');
+let starsList = document.querySelectorAll('.stars li');
 
 // getting the matched cards
 let matchedCards = document.getElementsByClassName('match');
 
+// the timer variables
+let second = 0, minute = 0, hour = 0;
+let timer = document.querySelector('.clock');
+let interval;
 
-
-// init the congratulations modal
-let modal = document.querySelector('.congrats-modal');
-
+// init the congratulations modal and get the close button
+let modal = document.getElementById('congrats-modal');
+let close = document.querySelector('.close');
 
 // openedCards init
 let openedCards = [];
@@ -64,7 +68,18 @@ function start() {
     counter.innerHTML = moves;
 
     // reset rating
+    for (let i = 0; i < stars.length; i++) {
+        stars[i].style.color = '#ffd700';
+        stars[i].style.visibility = 'visible';
+    }
+
     // reset timer
+    second = 0;
+    minute = 0;
+    hour = 0;
+    let timer = document.querySelector('.clock');
+    timer.innerHTML = `${minute}m ${second}s`;
+    clearInterval(interval);
 }
 
 
@@ -150,14 +165,23 @@ function addCounter() {
     }
 
     // starting the rating logic
+    if (moves > 8 && moves < 12) {
+        for (let i = 0; i < 3; i++) {
+            if (i > 1) {
+                stars[i].style.visibility = 'collapse';
+            }
+        }
+    } else if (moves > 13) {
+        for (let i = 0; i < 3; i++) {
+            if (i > 0) {
+                stars[i].style.visibility = 'collapse';
+            }
+        }
+    }
 }
 
 
 // the clock function
-let second = 0, minute = 0, hour = 0;
-let timer = document.querySelector('.clock');
-let interval;
-
 function startClock() {
     interval = setInterval(function() {
         timer.innerHTML = `${minute}m ${second}s`;
