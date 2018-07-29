@@ -50,7 +50,7 @@ body {
 }
 
 .deck {
-    width: 680px;
+    width: 600px;
     display: flex;
     flex-wrap: wrap;
     min-height: 600px;
@@ -63,8 +63,8 @@ body {
 /* header + navigation controls */
 .navigation {
     display: flex;
-    padding: 15px 0;
-    font-size: 1.35em;
+    padding: 10px 0;
+    font-size: 1.25em;
     align-items: center;
     justify-content: space-between;
 }
@@ -91,7 +91,14 @@ body {
     background-color: #d4d4d4;
 }
 
-.on {
+
+.disabled {
+    color: #ccc;
+    cursor: default;
+    border: 1px dashed #333;
+}
+
+.match {
     color: #fff;
     font-size: 2em;
     background-color: #157efb;
