@@ -95,6 +95,33 @@ function matched() {
     openedCards = [];
 }
 
+// when the cards data-type don't match
+function unmatched() {
+    openedCards[0].classList.add('unmatched');
+    openedCards[1].classList.add('unmatched');
+    
+    disable();
+    setTimeout(function() {
+        openedCards[0].classList.remove('show', 'open', 'no-event', 'unmatched');
+        openedCards[0].classList.remove('show', 'open', 'no-event', 'unmatched');
+        enable();
+        openedCards = [];
+    }, 2000);
+}
+
+// disable cards by 2 seconds
+function disable() {
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.add('disabled');
+    });
+}
+
+// (r)enable cards and disable the matched cards
+function enable() {
+    console.log('cards enabled!');
+}
+
+
 
 // counting the player's moves
 function addCounter() {
