@@ -25,9 +25,8 @@
                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
             </ul>
 
-            <div class="moves">0 move(s)</div>
-
-            <div class="timer">0 mins 0 secs</div>
+            <div class="moves">0</div>
+            <div class="clock">0m 0s</div>
 
             <button class="btn-reset" onclick="start()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
         </nav>
@@ -83,6 +82,24 @@
             </li>
         </ul>
     </button>
+
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Congratulations 🎉</h2>
+            <a class="close" href=# >×</a>
+            <div class="content-1">
+                Congratulations you're a winner 🎉🎉
+            </div>
+            <div class="content-2">
+                <p>You made <span id=finalMove> </span> moves </p>
+                <p>in <span id=totalTime> </span> </p>
+                <p>Rating:  <span id=starRating></span></p>
+            </div>
+            <button id="play-again"onclick="playAgain()">
+                Play again 😄</a>
+            </button>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
     <script src="js/app.js"></script>

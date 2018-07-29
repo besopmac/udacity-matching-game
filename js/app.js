@@ -1,19 +1,25 @@
 // collecting all cards on board
-const board = document.querySelectorAll('.card');
+let board = document.querySelectorAll('.card');
 let cards = [...board];
 
 // getting all cards on the deck
-const deck = document.querySelector('.deck');
+let deck = document.querySelector('.deck');
 
 // init moves variables
-const counter = document.querySelector('.moves');
+let counter = document.querySelector('.moves');
 let moves = 0;
 
 // init moves stars
-const lifes = document.querySelectorAll('.fa-star');
+let lifes = document.querySelectorAll('.fa-star');
 
 // getting the matched cards
-let matchedCards = document.querySelectorAll('.match');
+let matchedCards = document.getElementsByClassName('match');
+
+
+
+// init the congratulations modal
+let modal = document.querySelector('.congrats-modal');
+
 
 // openedCards init
 let openedCards = [];
@@ -103,13 +109,14 @@ function unmatched() {
     disable();
     setTimeout(function() {
         openedCards[0].classList.remove('show', 'open', 'no-event', 'unmatched');
-        openedCards[0].classList.remove('show', 'open', 'no-event', 'unmatched');
+        openedCards[1].classList.remove('show', 'open', 'no-event', 'unmatched');
         enable();
         openedCards = [];
-    }, 2000);
+    }, 1000);
 }
 
-// disable cards by 2 seconds
+
+// disable cards by 1 second
 function disable() {
     Array.prototype.filter.call(cards, function(card) {
         card.classList.add('disabled');
@@ -118,7 +125,12 @@ function disable() {
 
 // (r)enable cards and disable the matched cards
 function enable() {
-    console.log('cards enabled!');
+    Array.prototype.filter.call(cards, function(card) {
+        card.classList.remove('disabled');
+        for (let i = 0; i < matchedCards.length; i++) {
+            matchedCards[i].classList.add('disabled');
+        }
+    });
 }
 
 
@@ -128,10 +140,55 @@ function addCounter() {
     moves++;
     counter.innerHTML = moves;
 
-    console.log('counted!');
-
     // starting the timer counter
+    if (moves === 1) {
+        second = 0;
+        minute = 0;
+        hour = 0;
+
+        startClock();
+    }
+
     // starting the rating logic
+}
+
+
+// the clock function
+let second = 0, minute = 0, hour = 0;
+let timer = document.querySelector('.clock');
+let interval;
+
+function startClock() {
+    interval = setInterval(function() {
+        timer.innerHTML = `${minute}m ${second}s`;
+        second++;
+        if (second == 60) {
+            minute++;
+            second = 0;
+        }
+        if (minute == 60) {
+            hour++;
+            minute = 0;
+        }
+    }, 1000);
+}
+
+
+// when all cards match, congrats the player
+function congrats() {
+    if (matchedCards.length == 16) {
+        clearInterval(interval);
+        finalTime = timer.innerHTML;
+
+        //modal.classList.add('show');
+
+        // init star rating
+        let starRate = document.querySelector('.fa-star');
+
+        // showing move, rating and time on modal
+        console.log(moves);
+        console.log(starRate);
+    };
 }
 
 
@@ -140,6 +197,5 @@ for (let i = 0; i < cards.length; i++) {
     card = cards[i];
     card.addEventListener('click', displayCard);
     card.addEventListener('click', cardOpen);
-    
-    console.log(cards[i]);
-}
+    card.addEventListener('click', congrats);
+};
