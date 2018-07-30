@@ -2,9 +2,6 @@
  * CSS Reset, font-icons import and common styles
  *
  */
-
-@import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
-
 *,
 *::after,
 *::before {
@@ -15,16 +12,6 @@ html {
     box-sizing: border-box;
 }
 
-/* entypo */
-[class*="entypo-"]:before {
-    font-family: 'entypo', sans-serif;
-}
-  
-/* zocial */
-[class*="zocial-"]:before {
-    font-family: 'zocial', sans-serif;
-}
-
 body, section, header, main, nav,
 h1, h2, h3, h4, h5, h6
 p, ul, li {
@@ -33,73 +20,184 @@ p, ul, li {
 }
 
 body {
+    margin: 0;
+    padding: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;    
-    background-color: #ededed;
-    font-family: 'Fira Sans', sans-serif; 
+    background-color: #fff;
+    font-family: sans-serif;
 }
 
 .wrapper {
-    width: 680px;
-    /* padding: 1.5em; */
-    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-direction: column;
+}
+
+.deck {
+    /* width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 600px;
+    align-items: stretch;
+    justify-content: space-evenly;
+    */
+    width: 85%;
+	padding: 1rem;
+    display: flex;
+    margin: 0 0 3em;
+    flex-wrap: wrap;
+    align-items: center;
     background-color: #fff;
+    justify-content: space-around;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
-/* header + navigation controls */
-
-.title {
-    text-align: center;
-    /*
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    */
+/* cards */
+.deck .card {
+    /* padding: 12px;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.5em;
+    align-items: center;
+    justify-content: center;
+    width: calc((100% - 0px)/4);
+    background-color: #ededed;
+    transition: background-color .2s ease; */
+    
+    font-size: 0;
+    color: #fff;
+    display: flex;
+    width: 3.7rem;
+    height: 3.7rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
 }
 
+/* states of cards */
+/* .disabled {
+    color: #ccc;
+    cursor: default;
+}
+
+.match {
+    color: #fff;
+    background-color: #157efb;
+}
+.unmatched {
+    color: #fff;
+    background-color: #fb1521;
+} */
+
+
+/* header + navigation controls */
 .navigation {
     display: flex;
-    padding: 1em 0;
-    font-size: 1.35em;
+    padding: 10px 0;
+    font-size: 1.25em;
+    align-items: center;
     justify-content: space-between;
 }
-
-.lifes,
-.board {
+.btn-reset {
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: transparent;
+}
+.stars {
     display: flex;
     list-style: none;
 }
-
-
-/* cards */
-
-.board {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
+.stars li:not(:last-child) {
+    margin-right: 5px;
 }
 
-.card {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    cursor: pointer;
-    border-radius: 2px;
-    align-items: center;
-    justify-content: center;
 
-    font-size: 1em;
-    color: #ededed;
-    background-color: #ededed;
 
-    transition: all 0.5s ease-in;
+
+/*
+ * Styles for congratulations modal
+ */
+
+
+ .overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
 }
 
-.on {
-    color: #fff;
-    font-size: 2em;
-    background-color: #157efb;
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+  
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+  
+.popup h2 {
+	margin-top: 0;
+	color: #333;
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popup .close:hover {
+	color: #E5F720;
+}
+
+.popup .content-1,
+.content-2 {
+	max-height: 30%;
+	overflow: auto;
+	text-align: center;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #141214;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	color: #ffffff;
+	border-radius: 5px;
 }
