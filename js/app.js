@@ -1,5 +1,5 @@
 // collecting all cards on board
-let board = document.querySelectorAll('.card');
+let board = document.getElementsByClassName('card');
 let cards = [...board];
 
 // getting all cards on the deck
@@ -33,10 +33,9 @@ let openedCards = [];
 function shuffle(array) {
     let control = array.length, tempValue, index;
 
-    while (control > 0) {
+    while (control !== 0) {
         index = Math.floor(Math.random() * control);
-        control--;
-
+        control -= 1;
         tempValue = array[control];
         array[control] = array[index];
         array[index] = tempValue;
@@ -200,7 +199,7 @@ function startClock() {
 
 // when all cards match, congrats the player
 function congrats() {
-    if (matchedCards.length === 16) {
+    if (matchedCards.length == 16) {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
