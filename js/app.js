@@ -200,19 +200,37 @@ function startClock() {
 
 // when all cards match, congrats the player
 function congrats() {
-    if (matchedCards.length == 16) {
+    if (matchedCards.length === 16) {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        //modal.classList.add('show');
+        // bring the congrats modal
+        modal.classList.add('show');
 
         // init star rating
-        let starRate = document.querySelector('.fa-star');
+        let starRate = document.querySelector('.stars').innerHTML;
 
-        // showing move, rating and time on modal
-        console.log(moves);
-        console.log(starRate);
+        // shows move, rating and time on modal
+        document.getElementById('finalMove').innerHTML = moves;
+        document.getElementById('starRate').innerHTML = starRate;
+        document.getElementById('totalTime').innerHTML = finalTime;
+
+        // close button on modal
+        closeModal();
     };
+}
+
+// closeModal and playAgain functions
+function closeModal() {
+    close.addEventListener('click', function(e) {
+        modal.classList.remove('show');
+        start();
+    });
+}
+
+function playAgain() {
+    modal.classList.remove('show');
+    start();
 }
 
 
