@@ -44,16 +44,13 @@ body {
 
 .wrapper {
     width: 680px;
-    padding: 1.5em;
+    /* padding: 1.5em; */
     border-radius: 2px;
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
-/*
- * header + navigation controls
- *
- */
+/* header + navigation controls */
 
 .title {
     text-align: center;
@@ -77,20 +74,17 @@ body {
 }
 
 
-/*
- * cards
- *
- */
+/* cards */
 
 .board {
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .card {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     display: flex;
     cursor: pointer;
     border-radius: 2px;
@@ -101,7 +95,7 @@ body {
     color: #ededed;
     background-color: #ededed;
 
-    transition: all .5s ease-in;
+    transition: all 0.5s ease-in;
 }
 
 .on {
