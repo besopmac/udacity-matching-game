@@ -16,7 +16,7 @@ let starsList = document.querySelectorAll('.stars li');
 // getting the matched cards
 let matchedCards = document.getElementsByClassName('match');
 
-// the timer variables
+// the clock variables
 let second = 0, minute = 0, hour = 0;
 let timer = document.querySelector('.clock');
 let interval;
@@ -64,7 +64,7 @@ function start() {
 
     // reset moves
     moves = 0;
-    counter.innerHTML = moves;
+    counter.innerHTML = `${moves} moves`;
 
     // reset rating
     for (let i = 0; i < stars.length; i++) {
@@ -152,10 +152,11 @@ function enable() {
 // counting the player's moves
 function addCounter() {
     moves++;
-    counter.innerHTML = moves;
+    counter.innerHTML = `${moves} move${(moves >= 2 ? 's' : '')}`;
+    
 
     // starting the timer counter
-    if (moves === 1) {
+    if (moves == 1) {
         second = 0;
         minute = 0;
         hour = 0;
@@ -178,7 +179,6 @@ function addCounter() {
         }
     }
 }
-
 
 // the clock function
 function startClock() {
