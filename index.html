@@ -80,22 +80,23 @@
                 <i class="fa fa-dribbble" aria-hidden="true"></i>
             </li>
         </ul>
-    </button>
+    </div>
 
     <div id="congrats-modal" class="overlay">
         <div class="popup">
-            <h2>Congratulations 🎉</h2>
-            <a class="close" href=# >×</a>
-            <div class="content-1">
-                Congratulations you're a winner 🎉🎉
-            </div>
+            <a class="close" href=#>
+                <i class="fa fa-times-circle" aria-hidden="true"></i>
+            </a>
+            
+            <h2>Congratulations</h2>
+            
+            
             <div class="content-2">
-                <p>You made <span id='finalMove'> </span> moves </p>
-                <p>in <span id='totalTime'> </span> </p>
-                <p>Rating:  <span id='starRate'></span></p>
+                <p>You made <strong id='finalMove'></strong> moves in <strong id='totalTime'> </strong>!</p>
+                <p>Rating: <ul class="ranking" id='starRate'></ul></p>
             </div>
-            <button id="play-again"onclick="playAgain()">
-                Play again 😄</a>
+            <button id="play-again" onclick="playAgain()">
+                Play again 😄
             </button>
         </div>
     </div>

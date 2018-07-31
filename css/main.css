@@ -41,12 +41,12 @@ body {
     background-color: #3a3a3a;
     grid-template-rows: repeat(4, 120px);
     grid-template-columns: repeat(4, 120px);
-    box-shadow: 0 0 1em rgba(0, 0, 0, 1);
+    box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
 }
 
 /* cards */
 .card {
-    font-size: 0;
+    font-size: 10px;
     color: #fff;
     display: flex;
     cursor: pointer;
@@ -131,30 +131,32 @@ body {
  * Styles for congratulations modal
  */
 .overlay {
-	position: fixed;
 	top: 0;
-	bottom: 0;
-	left: 0;
+    left: 0;
 	right: 0;
-	background: rgba(0, 0, 0, 0.7);
-	transition: opacity 500ms;
-	visibility: hidden;
-	opacity: 0;
+    bottom: 0;
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    align-items: center;
+    flex-direction: center;
+    transition: opacity 0.5s;
+	background-color: rgba(0, 0, 0, 0.7);
+	
 }
-
 .overlay:target {
 	visibility: visible;
 	opacity: 1;
 }
   
 .popup {
-	margin: 70px auto;
-	padding: 20px;
-	background: #ffffff;
-	border-radius: 5px;
-	width: 85%;
+    width: 50%;
+    padding: 1em;
+    color: #333;
+    margin: 0 auto;
+	background: #fff;
 	position: relative;
-	transition: all 5s ease-in-out;
 }
   
 .popup h2 {
@@ -190,7 +192,12 @@ body {
 	opacity: 100 !important;
 }
 
-#starRating li {
+.ranking {
+    display: flex;
+    list-style: none;
+    border: 1px solid red;
+}
+.ranking li {
 	display: inline-block;
 }
 
