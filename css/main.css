@@ -46,7 +46,7 @@ body {
 
 /* cards */
 .card {
-    font-size: 10px;
+    font-size: 0;
     color: #fff;
     display: flex;
     cursor: pointer;
@@ -146,70 +146,77 @@ body {
 	
 }
 .overlay:target {
-	visibility: visible;
+    visibility: visible;
 	opacity: 1;
 }
   
 .popup {
-    width: 50%;
-    padding: 1em;
+    width: 40%;
+    padding: 1.5em;
     color: #333;
     margin: 0 auto;
 	background: #fff;
-	position: relative;
+    position: relative;
 }
   
 .popup h2 {
-	margin-top: 0;
-	color: #333;
-	font-family: Tahoma, Arial, sans-serif;
+    color: #333;
+    margin: 0 0 30px;
+}
+
+.popup p {
+    margin: 0;
+    line-height: 1;
 }
 
 .popup .close {
-	position: absolute;
 	top: 20px;
-	right: 30px;
-	transition: all 200ms;
-	font-size: 30px;
-	font-weight: bold;
-	text-decoration: none;
-	color: #333;
+	right: 20px;
+    color: #333;
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    text-decoration: none;
+    transition: all 200ms;
 }
 
 .popup .close:hover {
-	color: #E5F720;
+	color: #e2043b;
 }
 
-.popup .content-1,
-.content-2 {
-	max-height: 30%;
+.popup {
 	overflow: auto;
 	text-align: center;
 }
-
 .show {
-	visibility: visible !important;
-	opacity: 100 !important;
+    visibility: visible;
+    opacity: 100;
 }
 
 .ranking {
-    display: flex;
+    font-size: 2em;
     list-style: none;
-    border: 1px solid red;
+    margin: 20px 0 40px;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
 }
-.ranking li {
-	display: inline-block;
+.ranking li:not(:last-child) {
+	margin-right: 1rem;
 }
 
-#play-again {
-	background-color: #141214;
-	padding: 0.7rem 1rem;
-	font-size: 1.1rem;
-	display: block;
-	margin: 0 auto;
-	width: 50%;
-	color: #ffffff;
-	border-radius: 5px;
+.btn-play {
+	width: 30%;
+    border: none;
+    padding: 1rem;
+	color: #FFF;
+    margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+	text-transform: uppercase;
+    background-color: #02b3e4;
 }
 
 
@@ -284,4 +291,20 @@ body {
 	to {
 		transform: scale3d(1, 1, 1);
 	}
+}
+
+
+
+/* media queries */
+@media (max-width: 320px) {
+	/* .deck {
+		border: 2px solid red;
+	} */
+}
+
+/* tablets and larger screens */
+@media (min-width: 768px) {
+	/* .deck {
+		border: 2px solid green;  
+	} */
 }
