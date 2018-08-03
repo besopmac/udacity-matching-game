@@ -19,33 +19,81 @@ p, ul, li {
     padding: 0;
 }
 
+html, 
 body {
     margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
+    padding: 0; 
+}
+
+body {
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: 'Open Sans Condensed', sans-serif;
     background: #333 url('../img/chalkboard.jpg') 0 0 repeat;
-
 }
 
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.board {
+    padding: 5px;
+    border: 1px solid transparent;
+}
 
 .deck {
-    width: 100%;
     display: grid;
-    padding: 1rem;
-    grid-gap: 1rem;
+    padding: 10px;
+    grid-gap: 10px;
+    grid-auto-rows: 70px;
     background-color: #3a3a3a;
-    grid-template-rows: repeat(4, 120px);
-    grid-template-columns: repeat(4, 120px);
     box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
+    grid-template-columns: repeat(4, minmax(60px, 1fr));
 }
 
-/* cards */
+
+/* header + navigation controls */
+.navigation {
+    margin: 0;
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.title {
+    text-align: center;
+    margin-bottom: 2.5%;
+}
+.btn-reset {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: transparent;
+}
+.stars,
+.moves,
+.clock,
+.btn-reset {
+    font-size: 1.2em;
+}
+.stars {
+    display: flex;
+    list-style: none;
+}
+.stars li:not(:last-child) {
+    margin-right: 5px;
+}
+
+
+
+/*
+ * cards 
+ *
+ */
 .card {
     font-size: 0;
     color: #fff;
@@ -92,41 +140,6 @@ body {
 }
 
 
-/* header + navigation controls */
-.navigation {
-    display: flex;
-    padding: 10px 0;
-    font-size: 1.25em;
-    align-items: center;
-    justify-content: space-between;
-}
-.title {
-    text-align: center;
-    margin-bottom: 2.5%;
-}
-
-.btn-reset {
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    background-color: transparent;
-}
-.stars,
-.moves,
-.clock,
-.btn-reset {
-    font-size: 1.2em;
-}
-.stars {
-    display: flex;
-    list-style: none;
-}
-.stars li:not(:last-child) {
-    margin-right: 5px;
-}
-
-
-
 
 /*
  * Styles for congratulations modal
@@ -144,7 +157,6 @@ body {
     flex-direction: center;
     transition: opacity 0.5s;
 	background-color: rgba(0, 0, 0, 0.8);
-	
 }
 .overlay:target {
     visibility: visible;
@@ -160,15 +172,15 @@ body {
 }
 .popup h2 {
     color: #333;
-    margin: 0 0 30px;
+    margin: 30px 0;
 }
 .popup p {
     margin: 0;
     line-height: 1;
 }
 .popup .close {
-	top: 20px;
-	right: 20px;
+	top: 5px;
+	right: 10px;
     color: #333;
     font-size: 1em;
     font-weight: bold;
@@ -188,18 +200,18 @@ body {
     opacity: 100;
 }
 .ranking {
-    font-size: 2em;
+    display: flex;
+    font-size: 1.5em;
     list-style: none;
     margin: 20px auto 40px;
     align-items: center;
-    display: flex;
     justify-content: center;
 }
 .ranking li:not(:last-child) {
 	margin-right: 1rem;
 }
 .btn-play {
-	width: 30%;
+	width: 90%;
     border: none;
     padding: 1rem;
 	color: #FFF;
@@ -290,145 +302,59 @@ body {
  *
  */
 
-/* Mobile: Galaxy S5 */
-@media screen and (min-width: 360px) {
-	.wrapper {
-        width: calc(100% - 10px);
-    }
-
-    .deck {
+/* Mobile */
+@media screen and (max-width: 413px) {
+	.board {
         width: 100%;
-        display: grid;
-        padding: 6px;
-        grid-gap: 6px;
-        grid-template-rows: repeat(4, 80px);
-        grid-template-columns: repeat(4, 80px);
-        box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
     }
 
     .navigation {
-        display: flex;
-        padding: 10px 0;
-        font-size: 1.15em;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .title {
-        font-size: 1.85em;
-        text-align: center;
-        margin-bottom: 5%;
+        font-size: 1em;
     }
 
     .popup {
-        width: 90%;
+        width: 95%;
         padding: 1em;
-        color: #333;
         margin: 0 auto;
-        background: #fff;
-        position: relative;
-    }
-
-    .popup h2 {
-        margin: 15px 0 30px;
-    }
-
-    .popup p {
-        margin: 0;
-        font-size: 1em;
-        line-height: 1.1;
-    }
-
-    .popup .close {
-        top: 5px;
-        right: 15px;
-        font-size: 1em;
-    }
-
-    .ranking {
-        font-size: 1.75em;
-        margin-bottom: 30px;
-    }
-
-    .btn-play {
-        width: 70%;
     }
 }
 
-/* Tablet: iPad */
-@media screen and (min-width: 361px) and (max-width: 960px) {
-	.wrapper {
-        width: 90%;
+/* Tablet */
+@media screen and (min-width: 414px) and (max-width: 767px) {
+	.board {
+        width: 100%;
     }
 
     .deck {
-        width: 100%;
-        display: grid;
-        padding: 1em;
-        grid-gap: 1em;
-        grid-template-rows: repeat(4, 152px);
-        grid-template-columns: repeat(4, 152px);
-        box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
+        grid-auto-rows: 85px;
     }
 
     .title {
-        font-size: 3em;
-        text-align: center;
-        margin-bottom: 5%;
-    }
-
-    .navigation {
         font-size: 1.75em;
     }
 
     .popup {
-        width: 50%;
-        padding: 1em;
-        color: #333;
-        margin: 0 auto;
-        background: #fff;
-        position: relative;
-    }
-
-    .popup p {
-        margin: 0;
-        font-size: 1.2em;
-        line-height: 1.3;
-    }
-
-    .popup .close {
-       font-size: 1.25em;
-    }
-
-    .ranking {
-        font-size: 2em;
-        margin-bottom: 30px;
+        width: 95%;
     }
 
     .btn-play {
-        width: 70%;
+        width: 90%;
     }
 }
 
-@media screen and (min-width: 961px) and (max-width: 1024px) {
-    .wrapper {
-        width: 55%;
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.board {
+        width: 65%;
+        border-color: orange;
     }
 
     .deck {
-        width: 100%;
-        display: grid;
-        padding: 1em;
-        grid-gap: 1em;
-        grid-template-rows: repeat(4, 120px);
-        grid-template-columns: repeat(4, 120px);
-        box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
+        grid-auto-rows: 120px;
     }
 
     .title {
         font-size: 2.5em;
-        text-align: center;
-        margin-bottom: 2.5%;
     }
 
     .navigation {
@@ -437,46 +363,38 @@ body {
 
     .popup {
         width: 50%;
-        padding: 1em;
-        color: #333;
-        margin: 0 auto;
-        background: #fff;
-        position: relative;
-    }
-
-    .popup p {
-        margin: 0;
-        font-size: 1.2em;
-        line-height: 1.3;
-    }
-
-    .popup .close {
-       font-size: 1.25em;
-    }
-
-    .ranking {
-        font-size: 2em;
-        margin-bottom: 30px;
     }
 
     .btn-play {
-        width: 70%;
+        width: 90%;
     }
 }
 
+/* Desktop */
 @media screen and (min-width: 1025px) {
-    .wrapper {
-        width: 36.5%;
+	.board {
+        width: 50%;
+        padding: 0;
+        max-width: 680px;
+    }
+
+    .title {
+        font-size: 2.5em;
+    }
+
+    .navigation {
+        font-size: 1.5em;
     }
 
     .deck {
-        width: 100%;
-        display: grid;
-        padding: 1rem;
-        grid-gap: 1rem;
-        background-color: #3a3a3a;
-        grid-template-rows: repeat(4, 120px);
-        grid-template-columns: repeat(4, 120px);
-        box-shadow: 0 0 1.5em rgba(0, 0, 0, .5);
+        grid-auto-rows: 150px;
+    }
+
+    .popup {
+        width: 30%;
+    }
+
+    .btn-play {
+        width: 90%;
     }
 }

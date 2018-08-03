@@ -6,7 +6,7 @@ let cards = [...board];
 const deck = document.querySelector('.deck');
 
 // init moves variables
-let moves = 0;
+let moves;
 let counter = document.querySelector('.moves');
 
 // getting the stars icons and rank list
