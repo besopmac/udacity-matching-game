@@ -346,7 +346,6 @@ body {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 	.board {
         width: 65%;
-        border-color: orange;
     }
 
     .deck {
