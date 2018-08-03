@@ -300,7 +300,14 @@ body {
  *
  */
 
-/* Mobile: Galaxy S5 */
+/* Mobile */
+@media screen and (max-width: 414px) {
+	.wrapper {
+        border-color: green;
+    }
+}
+
+/* Tablet */
 @media screen and (max-width: 414px) {
 	.wrapper {
         border-color: green;
