@@ -1,0 +1,24 @@
+{
+  "name": "udacity-matching-game",
+  "version": "1.0.0",
+  "description": "Um jogo de memória baseado na última lição do Front-End Development Web Foundations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/besopmac/udacity-matching-game.git"
+  },
+  "keywords": [
+    "matching",
+    "game",
+    "udacity"
+  ],
+  "author": "Bruno Campos <brunosopmac@gmail.com> (https://besopmac.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/besopmac/udacity-matching-game/issues"
+  },
+  "homepage": "https://github.com/besopmac/udacity-matching-game#readme"
+}
